@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 random_seed = 1
 batch_size = 50
 loss_list = []
-epoches = 200
+epochs = 200
 
 
 # 自定义数据集
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     train_loader = DataLoader(dataset=train_data, batch_size=batch_size, shuffle=True)
     criterion = MyLoss()
     optimizer = optim.Adam([result], lr=0.0001)
-    for epoch in range(epoches):
+    for epoch in range(epochs):
         running_loss = 0.0
         for batch_index, data in enumerate(train_loader):
             inputs = data
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         print(running_loss)
         loss_list.append(running_loss/2000.0)
     print(result)
-    x1 = range(epoches)
+    x1 = range(epochs)
     y1 = loss_list
     plt.plot(x1, y1, '-')
     plt.ylabel('Loss')
